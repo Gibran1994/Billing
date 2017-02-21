@@ -41,9 +41,6 @@ public class Loginservice
          query.setParameter("u",username);
          query.setParameter("p",password);
          
-         
-         System.out.println(list);
-         
          list=query.list();
          
          System.out.println(list);
