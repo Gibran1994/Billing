@@ -22,7 +22,7 @@ public class RegisterServlet
 		public static Response loginJersey(Users user)
 		{
 		System.out.println("Trying to register " + user.getUsername());
-		
+		System.out.println("i am in branch 1.0.1");
 		Session session = restaurant.HibernateUtil.getSessionFactory().openSession();
 		session.beginTransaction();
 		   System.out.println("session created");
