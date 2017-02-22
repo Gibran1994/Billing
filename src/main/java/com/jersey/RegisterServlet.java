@@ -16,7 +16,7 @@ import restaurant.Users;
 public class RegisterServlet
 {
 
-	GLFG
+	
 		@POST
 		@Consumes(MediaType.APPLICATION_JSON)
 		public static Response loginJersey(Users user)
