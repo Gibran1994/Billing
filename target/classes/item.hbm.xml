@@ -5,7 +5,7 @@
 
 <hibernate-mapping>
     
-    <class name="restaurant.Item" table="ITEMS">
+    <class name="com.billing.model.Item" table="ITEMS">
     
         <id name="id" type="int" column="item_id">
             <generator class="assigned"/>

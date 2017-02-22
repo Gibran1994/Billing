@@ -5,7 +5,7 @@
 
 <hibernate-mapping>
 
-   <class name="restaurant.Users" table="USERS">
+   <class name="com.billing.model.Users" table="USERS">
    
         <id name="id" type="int" column="id">
             <generator class="assigned"/>
@@ -19,7 +19,12 @@
             <column name="password"/>
         </property>
         
-
+        <set name="item" cascade="all">
+         		<key column="item_id"/>
+        		<one-to-many class="com.billing.model.Item"/>
+      	</set>
+        
     </class>
+   
 
 </hibernate-mapping>
