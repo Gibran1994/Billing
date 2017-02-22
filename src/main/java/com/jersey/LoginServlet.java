@@ -9,6 +9,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import restaurant.Users;
 import service.Loginservice;
 
 @Path("/login")
@@ -16,12 +17,12 @@ public class LoginServlet
 {
 
 	@POST
-	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public static Response loginJersey(@FormParam("user") String username,@FormParam("password") String password)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public static Response loginJersey(Users user)
 	{
 		
-		System.out.println(username + " " + password);
-		Boolean res=Loginservice.loginService(username,password);
+		System.out.println("trying to log in as " + user.getUsername());
+		Boolean res=Loginservice.loginService(user);
 				
 		java.net.URI location;
 		if(res)

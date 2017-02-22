@@ -3,27 +3,34 @@ package com.jersey;
 import java.net.URISyntaxException;
 
 import javax.ws.rs.Consumes;
-import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import service.RegisterService;
+import org.hibernate.Session;
 
-@Path("/register")
+import restaurant.Users;
+
+@Path("register")
 public class RegisterServlet
 {
 
 		@POST
-		@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-		public static Response loginJersey(@FormParam ("id") int id,@FormParam("user") String username,@FormParam("password") String password)
+		@Consumes(MediaType.APPLICATION_JSON)
+		public static Response loginJersey(Users user)
 		{
-		System.out.println(id + " " +username + " " + password);
+		System.out.println("Trying to register " + user.getUsername());
 		
-		
-		
-		RegisterService.registerService(id,username,password);
+		Session session = restaurant.HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+		   System.out.println("session created");
+		   
+	        session.save(user);
+	        session.getTransaction().commit();
+	        session.close();
+	        
+	        System.out.println(user.getUsername()+ " Registered");
 		
 		try {
 			System.out.println("Trying to redirect");

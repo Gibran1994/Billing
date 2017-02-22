@@ -18,7 +18,8 @@
         <property name="password" type="java.lang.String">
             <column name="password"/>
         </property>
-       
+        
+
     </class>
 
 </hibernate-mapping>

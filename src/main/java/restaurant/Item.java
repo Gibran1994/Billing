@@ -2,19 +2,20 @@ package restaurant;
 
 public class Item
 {
-	private String item;
+	private int id;
+	private String item_name;
 	private int rate;
 	
 	//Getter Item
 	public String getItem() 
 	{
-		return item;
+		return item_name;
 	}
 	
 	//Setter Item
-	public void setItem(String item) 
+	public void setItem(String item_name) 
 	{
-		this.item = item;
+		this.item_name = item_name;
 	}
 	
 	//Getter Rate
@@ -27,6 +28,14 @@ public class Item
 	public void setRate(int rate) 
 	{
 		this.rate = rate;
+	}
+	//Getter id
+	public int getId() {
+		return id;
+	}
+	//Setter ID
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 }

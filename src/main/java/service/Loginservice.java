@@ -1,26 +1,22 @@
 package service;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-//
-//import com.restaurant.connect.CloseCon;
-//import com.restaurant.connect.Connect;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import restaurant.Users;
+
 public class Loginservice
 {
 	static java.util.List list;
-	public static Boolean loginService(String username,String password)
-	{
+	public static Boolean loginService(Users user)
+	{		
+		//System.out.println(username + " " + password + "in login service");
 		
-		System.out.println(username + " " + password);
+		String username=user.getUsername();
+		String password=user.getPassword();
 		
 		//validate
 		 
@@ -40,6 +36,8 @@ public class Loginservice
          Query query = session.createQuery("from Users where username=:u and password=:p");
          query.setParameter("u",username);
          query.setParameter("p",password);
+         
+         
          
          list=query.list();
          

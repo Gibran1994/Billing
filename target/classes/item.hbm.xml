@@ -7,13 +7,20 @@
     
     <class name="restaurant.Item" table="ITEMS">
     
-        <id name="item" type="varchar" column="Item">
+        <id name="id" type="int" column="item_id">
             <generator class="assigned"/>
         </id>
     
-        <property name="rate">
-            <column name="Rate"/>
+        <property name="item_name">
+            <column name="item_name"/>
         </property>
+    
+        <property name="rate">
+            <column name="price"/>
+        </property>
+        
+        
+        
         
     </class>
     

@@ -1,5 +1,7 @@
 package restaurant;
 
+import java.util.Set;
+
 public class Users
 {
 	private int id;

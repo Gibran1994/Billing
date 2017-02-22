@@ -1,50 +1,23 @@
 package service;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import org.hibernate.Session;
 
-import com.restaurant.connect.CloseCon;
-import com.restaurant.connect.Connect;
+import restaurant.Item;
 
 public class InsertItemService 
 {
-	public static void insertItemService(String itemName,String itemValue)
+	public static void insertItemService(int item_id,String itemName,int itemValue)
 	{
-
-		Connection con=null;
-		PreparedStatement ps=null;
+		System.out.println("Inside Insert Item Service");
 		
-		String qry="Insert into restaurant.items values(?,?)";
-		try
-		{
-			con=Connect.getConnect();
-			ps=con.prepareStatement(qry);
-			ps.setString(1, itemName);
-			ps.setString(2, itemValue);
-			ps.executeUpdate();
-			System.out.println("Item Entry Made");
-			//res.sendRedirect("InsertAnother.html");
-			
-			
-		}
-		catch(ClassNotFoundException e)
-		{
-			e.printStackTrace();
-		} 
-		catch (SQLException e) 
-		{
-			e.printStackTrace();
-		}
-		 finally
-		 {
-			 try {
-				CloseCon.close(con,ps);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		 }
-
+		Session session = restaurant.HibernateUtil.getSessionFactory().openSession();
+		   
+		System.out.println("session created");
+		
+		session.beginTransaction();
+        Item item=new Item();
+        item.setId(item_id);
+        item.setItem(itemName);
+        item.setRate(itemValue);
 	}
 }

@@ -16,12 +16,12 @@ public class InsertItemServlet
 {
 	@POST
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public static Response loginJersey(@FormParam("item") String itemName,@FormParam("price") String itemValue)
+	public static Response loginJersey(@FormParam("item_id") int item_id,@FormParam("item") String itemName,@FormParam("price") int itemValue)
 	{
 	
 		
-		System.out.println(itemName+" "+itemValue);
-		InsertItemService.insertItemService(itemName, itemValue);
+		System.out.println(item_id+" "+itemName+" "+itemValue);
+		InsertItemService.insertItemService(item_id,itemName, itemValue);
 		try {
 			java.net.URI location;
 			location = new java.net.URI("../InsertAnother.html");
