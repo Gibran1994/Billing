@@ -1,7 +1,5 @@
 package com.billing.service;
 
-import org.hibernate.Session;
-
 import com.billing.dao.ItemDao;
 import com.billing.dao.impl.ItemDaoImpl;
 import com.billing.model.Item;

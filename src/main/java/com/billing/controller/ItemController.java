@@ -13,7 +13,7 @@ import com.billing.pojo.Item;
 import com.billing.service.InsertItemService;
 
 @Path("/item")
-public class ItemServlet
+public class ItemController
 {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
